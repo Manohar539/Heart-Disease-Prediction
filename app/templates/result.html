@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+    <h1>❤️ Heart Disease Prediction Result</h1>
+
+    <p class="subtitle">
+        National College of Ireland<br>
+        Cloud Machine Learning Project
+    </p>
+
+    <hr>
+
+    <div class="result-box {{ color }}">
+        <h2>{{ prediction }}</h2>
+        <p class="probability">Risk Probability: {{ probability }}%</p>
+    </div>
+
+    <div class="recommendation">
+        <h3>Health Recommendation</h3>
+        <p>{{ recommendation }}</p>
+    </div>
+
+    <a href="/" class="back-btn">Predict Another Patient</a>
+
+</div>
+</body>
+</html>
