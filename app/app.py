@@ -12,6 +12,9 @@ print("Loaded Model:", type(model).__name__)
 @app.route("/")
 def home():
     return render_template("index.html")
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 @app.route("/predict", methods=["POST"])
@@ -54,12 +57,21 @@ def predict():
             recommendation = "Maintain regular exercise, balanced diet, routine check-ups, and avoid smoking."
 
         return render_template(
-            "result.html",
-            prediction=risk,
-            probability=round(probability * 100, 2),
-            color=color,
-            recommendation=recommendation
-        )
+    "result.html",
+    prediction=risk,
+    probability=round(probability * 100, 2),
+    color=color,
+    recommendation=recommendation,
+
+    age=request.form["age"],
+    gender="Male" if request.form["male"] == "1" else "Female",
+    smoker="Yes" if request.form["currentSmoker"] == "1" else "No",
+    bmi=request.form["BMI"],
+    cholesterol=request.form["totChol"],
+    systolic=request.form["sysBP"],
+    diastolic=request.form["diaBP"],
+    glucose=request.form["glucose"]
+)
 
     except Exception as e:
         return f"<h2>Error:</h2><p>{str(e)}</p>"

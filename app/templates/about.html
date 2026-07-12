@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About the Project</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="page-header">
+        <h1>❤️ About the Heart Disease Prediction Project</h1>
+
+        <p class="subtitle">
+            National College of Ireland<br>
+            Cloud Machine Learning Project
+        </p>
+    </header>
+
+    <hr>
+
+    <section class="about-card">
+        <h2>Project Objective</h2>
+
+        <p>
+            The objective of this project is to develop a cloud-ready machine
+            learning application that predicts the risk of heart disease using
+            demographic, behavioural, and clinical patient information.
+        </p>
+    </section>
+
+    <section class="about-card">
+        <h2>Datasets Analysed</h2>
+
+        <p>
+            Three publicly available cardiovascular datasets were collected
+            and compared:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Framingham Heart Study Dataset</strong> —
+                selected as the primary training dataset.
+            </li>
+
+            <li>
+                <strong>Heart Disease Dataset</strong> —
+                used for comparative feature and target analysis.
+            </li>
+
+            <li>
+                <strong>Heart Failure Clinical Records Dataset</strong> —
+                used for comparative analysis of cardiovascular outcomes.
+            </li>
+        </ul>
+
+        <p>
+            The datasets were compared based on record count, feature
+            availability, missing values, clinical variables, and prediction
+            objectives. The Framingham dataset was selected because it contains
+            a broad set of cardiovascular risk factors and aligns most closely
+            with the goal of predicting ten-year coronary heart disease risk.
+        </p>
+    </section>
+
+    <section class="about-card">
+        <h2>Machine Learning Models</h2>
+
+        <ul>
+            <li>Logistic Regression</li>
+            <li>Random Forest</li>
+            <li>Random Forest with SMOTE</li>
+            <li>XGBoost</li>
+        </ul>
+
+        <p>
+            The models were evaluated using accuracy, precision, recall,
+            F1-score, confusion matrices, and cross-validation.
+        </p>
+
+        <p>
+            Random Forest was selected for deployment because it achieved the
+            strongest recall and F1-score for identifying heart disease cases
+            among the evaluated baseline models.
+        </p>
+    </section>
+
+    <section class="about-card">
+        <h2>Technologies Used</h2>
+
+        <div class="technology-grid">
+
+            <div>Python</div>
+            <div>Pandas</div>
+            <div>NumPy</div>
+            <div>Scikit-learn</div>
+            <div>XGBoost</div>
+            <div>Flask</div>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>GitHub</div>
+
+        </div>
+    </section>
+
+    <section class="about-card">
+        <h2>System Workflow</h2>
+
+        <div class="workflow">
+            Dataset Comparison
+            <span>→</span>
+            Data Preprocessing
+            <span>→</span>
+            Model Training
+            <span>→</span>
+            Model Evaluation
+            <span>→</span>
+            Flask Integration
+            <span>→</span>
+            Risk Prediction
+        </div>
+    </section>
+
+    <section class="about-card">
+        <h2>Important Limitation</h2>
+
+        <p>
+            This application is intended for academic and educational purposes.
+            It is not a clinical diagnostic tool and should not replace medical
+            advice from a qualified healthcare professional.
+        </p>
+    </section>
+
+    <a href="{{ url_for('home') }}" class="back-btn">
+        Return to Prediction Page
+    </a>
+
+</div>
+
+</body>
+
+</html>
