@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heart Failure Prediction</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>❤️ Heart Failure Outcome Prediction</h1>
+
+    <p class="subtitle">
+        Heart Failure Dataset Prediction Module<br>
+        XGBoost Classification Model
+    </p>
+
+    <div class="navigation">
+        <a href="{{ url_for('home') }}">Framingham</a>
+        <a href="{{ url_for('heart_page') }}">Heart Dataset</a>
+        <a href="{{ url_for('heart_failure_page') }}">Heart Failure</a>
+        <a href="{{ url_for('comparison_page') }}">Comparison</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </div>
+
+    <hr>
+
+    <form action="/predict-heart-failure" method="POST">
+
+        <div class="form-grid">
+
+            <div>
+                <label for="age">Age</label>
+                <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    min="18"
+                    max="100"
+                    step="0.1"
+                    placeholder="Example: 65"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="anaemia">Anaemia</label>
+                <select id="anaemia" name="anaemia" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="creatinine_phosphokinase">
+                    Creatinine Phosphokinase (mcg/L)
+                </label>
+                <input
+                    type="number"
+                    id="creatinine_phosphokinase"
+                    name="creatinine_phosphokinase"
+                    min="0"
+                    max="10000"
+                    placeholder="Example: 582"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="diabetes">Diabetes</label>
+                <select id="diabetes" name="diabetes" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="ejection_fraction">
+                    Ejection Fraction (%)
+                </label>
+                <input
+                    type="number"
+                    id="ejection_fraction"
+                    name="ejection_fraction"
+                    min="5"
+                    max="80"
+                    placeholder="Example: 35"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="high_blood_pressure">
+                    High Blood Pressure
+                </label>
+                <select
+                    id="high_blood_pressure"
+                    name="high_blood_pressure"
+                    required
+                >
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="platelets">
+                    Platelets (kiloplatelets/mL)
+                </label>
+                <input
+                    type="number"
+                    id="platelets"
+                    name="platelets"
+                    min="10000"
+                    max="1000000"
+                    step="0.1"
+                    placeholder="Example: 265000"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="serum_creatinine">
+                    Serum Creatinine (mg/dL)
+                </label>
+                <input
+                    type="number"
+                    id="serum_creatinine"
+                    name="serum_creatinine"
+                    min="0.1"
+                    max="20"
+                    step="0.1"
+                    placeholder="Example: 1.2"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="serum_sodium">
+                    Serum Sodium (mEq/L)
+                </label>
+                <input
+                    type="number"
+                    id="serum_sodium"
+                    name="serum_sodium"
+                    min="100"
+                    max="160"
+                    placeholder="Example: 137"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="smoking">Smoking</label>
+                <select id="smoking" name="smoking" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="time">Follow-up Time (days)</label>
+                <input
+                    type="number"
+                    id="time"
+                    name="time"
+                    min="1"
+                    max="500"
+                    placeholder="Example: 90"
+                    required
+                >
+            </div>
+
+        </div>
+
+        <button type="submit">
+            Predict Heart Failure Outcome
+        </button>
+
+    </form>
+
+    <p class="form-disclaimer">
+        This prediction module is intended for academic and educational
+        purposes only. It does not provide a medical diagnosis.
+    </p>
+
+</div>
+
+</body>
+
+</html>

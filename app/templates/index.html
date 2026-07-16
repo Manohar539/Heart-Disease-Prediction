@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Heart Disease Prediction</title>
+    <title>Framingham Heart Disease Risk Prediction</title>
 
     <link
         rel="stylesheet"
@@ -17,13 +17,22 @@
 
 <div class="container">
 
-    <h1>❤️ Heart Disease Prediction System</h1>
+    <h1>❤️ Framingham Heart Disease Risk Prediction</h1>
 
     <p class="subtitle">
-        <div class="navigation">
-    <a href="{{ url_for('home') }}">Home</a>
-    <a href="{{ url_for('about') }}">About Project</a>
-</div>
+        10-Year Coronary Heart Disease Risk Module<br>
+        Random Forest Classification Model
+    </p>
+
+    <div class="navigation">
+        <a href="{{ url_for('home') }}">Framingham</a>
+        <a href="{{ url_for('heart_page') }}">Heart Dataset</a>
+        <a href="{{ url_for('heart_failure_page') }}">Heart Failure</a>
+        <a href="{{ url_for('comparison_page') }}">Comparison</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </div>
+
+    <p class="subtitle">
         National College of Ireland<br>
         Cloud Machine Learning Project
     </p>
@@ -219,7 +228,7 @@
         </div>
 
         <button type="submit">
-            Predict Heart Disease Risk
+            Predict 10-Year Heart Disease Risk
         </button>
 
     </form>

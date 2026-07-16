@@ -17,131 +17,221 @@
 
 <div class="container">
 
-    <header class="page-header">
-        <h1>❤️ About the Heart Disease Prediction Project</h1>
+    <h1>❤️ About the Heart Disease Prediction Project</h1>
 
-        <p class="subtitle">
-            National College of Ireland<br>
-            Cloud Machine Learning Project
-        </p>
-    </header>
+    <p class="subtitle">
+        National College of Ireland<br>
+        MSc in Computing – Machine Learning Project
+    </p>
+
+    <div class="navigation">
+        <a href="{{ url_for('home') }}">Framingham</a>
+        <a href="{{ url_for('heart_page') }}">Heart Dataset</a>
+        <a href="{{ url_for('heart_failure_page') }}">Heart Failure</a>
+        <a href="{{ url_for('comparison_page') }}">Comparison</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </div>
 
     <hr>
 
     <section class="about-card">
-        <h2>Project Objective</h2>
+
+        <h2>Project Overview</h2>
 
         <p>
-            The objective of this project is to develop a cloud-ready machine
-            learning application that predicts the risk of heart disease using
-            demographic, behavioural, and clinical patient information.
+            This project presents a cloud-ready machine learning application
+            capable of predicting cardiovascular risk using three independent
+            healthcare datasets. Each dataset was preprocessed, analysed,
+            trained, evaluated and deployed using its best-performing machine
+            learning model.
         </p>
+
     </section>
 
     <section class="about-card">
-        <h2>Datasets Analysed</h2>
 
-        <p>
-            Three publicly available cardiovascular datasets were collected
-            and compared:
-        </p>
+        <h2>Datasets Used</h2>
 
-        <ul>
-            <li>
-                <strong>Framingham Heart Study Dataset</strong> —
-                selected as the primary training dataset.
-            </li>
+        <table class="comparison-table">
 
-            <li>
-                <strong>Heart Disease Dataset</strong> —
-                used for comparative feature and target analysis.
-            </li>
+            <thead>
+                <tr>
+                    <th>Dataset</th>
+                    <th>Prediction Goal</th>
+                    <th>Records</th>
+                    <th>Features</th>
+                </tr>
+            </thead>
 
-            <li>
-                <strong>Heart Failure Clinical Records Dataset</strong> —
-                used for comparative analysis of cardiovascular outcomes.
-            </li>
-        </ul>
+            <tbody>
 
-        <p>
-            The datasets were compared based on record count, feature
-            availability, missing values, clinical variables, and prediction
-            objectives. The Framingham dataset was selected because it contains
-            a broad set of cardiovascular risk factors and aligns most closely
-            with the goal of predicting ten-year coronary heart disease risk.
-        </p>
+                <tr>
+                    <td>Framingham Heart Study</td>
+                    <td>10-Year Coronary Heart Disease Risk</td>
+                    <td>4,240</td>
+                    <td>15</td>
+                </tr>
+
+                <tr>
+                    <td>Heart Disease Dataset</td>
+                    <td>Heart Disease Classification</td>
+                    <td>920</td>
+                    <td>12</td>
+                </tr>
+
+                <tr>
+                    <td>Heart Failure Clinical Records</td>
+                    <td>Heart Failure Outcome Prediction</td>
+                    <td>5,000</td>
+                    <td>12</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
     </section>
 
     <section class="about-card">
+
         <h2>Machine Learning Models</h2>
 
-        <ul>
-            <li>Logistic Regression</li>
-            <li>Random Forest</li>
-            <li>Random Forest with SMOTE</li>
-            <li>XGBoost</li>
-        </ul>
+        <table class="comparison-table">
 
-        <p>
-            The models were evaluated using accuracy, precision, recall,
-            F1-score, confusion matrices, and cross-validation.
-        </p>
+            <thead>
+                <tr>
+                    <th>Dataset</th>
+                    <th>Models Evaluated</th>
+                    <th>Selected Model</th>
+                </tr>
+            </thead>
 
-        <p>
-            Random Forest was selected for deployment because it achieved the
-            strongest recall and F1-score for identifying heart disease cases
-            among the evaluated baseline models.
-        </p>
+            <tbody>
+
+                <tr>
+                    <td>Framingham</td>
+                    <td>Logistic Regression, Random Forest, SMOTE RF</td>
+                    <td><strong>Random Forest</strong></td>
+                </tr>
+
+                <tr>
+                    <td>Heart Dataset</td>
+                    <td>Logistic Regression, Random Forest, XGBoost</td>
+                    <td><strong>XGBoost</strong></td>
+                </tr>
+
+                <tr>
+                    <td>Heart Failure</td>
+                    <td>Logistic Regression, Random Forest, XGBoost</td>
+                    <td><strong>XGBoost</strong></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
     </section>
 
     <section class="about-card">
+
         <h2>Technologies Used</h2>
 
         <div class="technology-grid">
 
             <div>Python</div>
-            <div>Pandas</div>
-            <div>NumPy</div>
+            <div>Flask</div>
             <div>Scikit-learn</div>
             <div>XGBoost</div>
-            <div>Flask</div>
-            <div>HTML</div>
-            <div>CSS</div>
+            <div>Pandas</div>
+            <div>NumPy</div>
+            <div>Matplotlib</div>
+            <div>HTML5</div>
+            <div>CSS3</div>
+            <div>Git</div>
             <div>GitHub</div>
 
         </div>
+
     </section>
 
     <section class="about-card">
-        <h2>System Workflow</h2>
+
+        <h2>Project Workflow</h2>
 
         <div class="workflow">
-            Dataset Comparison
+
+            Dataset Collection
+
             <span>→</span>
-            Data Preprocessing
+
+            Data Cleaning
+
             <span>→</span>
+
+            Feature Engineering
+
+            <span>→</span>
+
             Model Training
+
             <span>→</span>
+
             Model Evaluation
+
             <span>→</span>
-            Flask Integration
+
+            Flask Deployment
+
             <span>→</span>
-            Risk Prediction
+
+            Prediction
+
         </div>
+
     </section>
 
     <section class="about-card">
-        <h2>Important Limitation</h2>
+
+        <h2>Key Features</h2>
+
+        <ul>
+
+            <li>Three independent cardiovascular prediction modules</li>
+
+            <li>Machine learning model comparison</li>
+
+            <li>Interactive Flask web application</li>
+
+            <li>Probability-based risk prediction</li>
+
+            <li>Dataset comparison dashboard</li>
+
+            <li>Cloud deployment ready</li>
+
+        </ul>
+
+    </section>
+
+    <section class="about-card">
+
+        <h2>Academic Disclaimer</h2>
 
         <p>
-            This application is intended for academic and educational purposes.
-            It is not a clinical diagnostic tool and should not replace medical
-            advice from a qualified healthcare professional.
+
+            This application has been developed exclusively for academic
+            research and educational demonstration purposes as part of a
+            Master's programme. The predictions generated by the models are
+            intended to illustrate machine learning techniques and must not be
+            interpreted as professional medical advice or clinical diagnosis.
+
         </p>
+
     </section>
 
     <a href="{{ url_for('home') }}" class="back-btn">
-        Return to Prediction Page
+
+        ← Back to Prediction System
+
     </a>
 
 </div>

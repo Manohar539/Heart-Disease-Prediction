@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Model and Dataset Comparison</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container comparison-container">
+
+    <h1>📊 Model Comparison Dashboard</h1>
+
+    <p class="subtitle">
+        Comparative Analysis of Three Cardiovascular Datasets<br>
+        National College of Ireland
+    </p>
+
+    <div class="navigation">
+        <a href="{{ url_for('home') }}">Framingham</a>
+        <a href="{{ url_for('heart_page') }}">Heart Dataset</a>
+        <a href="{{ url_for('heart_failure_page') }}">Heart Failure</a>
+        <a href="{{ url_for('comparison_page') }}">Comparison</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </div>
+
+    <hr>
+
+    <section class="about-card">
+
+        <h2>Selected Deployment Models</h2>
+
+        <p>
+            Three machine-learning algorithms were evaluated for each dataset.
+            The deployed model for each module was selected by considering
+            accuracy, precision, recall and F1-score together.
+        </p>
+
+        <div class="comparison-table-wrapper">
+
+            <table class="comparison-table">
+
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Prediction Objective</th>
+                        <th>Selected Model</th>
+                        <th>Accuracy</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-Score</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Framingham</td>
+                        <td>10-Year CHD Risk</td>
+                        <td>
+                            <span class="model-badge">
+                                Random Forest
+                            </span>
+                        </td>
+                        <td>81.60%</td>
+                        <td>0.32</td>
+                        <td>0.18</td>
+                        <td>0.23</td>
+                    </tr>
+
+                    <tr>
+                        <td>Heart Dataset</td>
+                        <td>Heart Disease Presence</td>
+                        <td>
+                            <span class="model-badge">
+                                XGBoost
+                            </span>
+                        </td>
+                        <td>83.70%</td>
+                        <td>0.85</td>
+                        <td>0.86</td>
+                        <td>0.85</td>
+                    </tr>
+
+                    <tr class="best-result-row">
+                        <td>Heart Failure</td>
+                        <td>Adverse Outcome Prediction</td>
+                        <td>
+                            <span class="model-badge">
+                                XGBoost
+                            </span>
+                        </td>
+                        <td>99.50%</td>
+                        <td>0.99</td>
+                        <td>0.99</td>
+                        <td>0.99</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p class="comparison-note">
+            The metrics shown for precision, recall and F1-score refer to the
+            positive outcome class.
+        </p>
+
+    </section>
+
+    <section class="metrics-grid">
+
+        <article class="metric-card">
+            <h3>Framingham</h3>
+            <p class="metric-model">Random Forest</p>
+
+            <div class="metric-row">
+                <span>Accuracy</span>
+                <strong>81.60%</strong>
+            </div>
+
+            <div class="metric-progress">
+                <div style="width: 81.60%;"></div>
+            </div>
+
+            <p>
+                Selected because its positive-class recall and F1-score were
+                stronger than the other tested Framingham models, despite the
+                class imbalance.
+            </p>
+        </article>
+
+        <article class="metric-card">
+            <h3>Heart Dataset</h3>
+            <p class="metric-model">XGBoost</p>
+
+            <div class="metric-row">
+                <span>Accuracy</span>
+                <strong>83.70%</strong>
+            </div>
+
+            <div class="metric-progress">
+                <div style="width: 83.70%;"></div>
+            </div>
+
+            <p>
+                XGBoost produced the highest accuracy while maintaining strong
+                positive-class recall and F1-score.
+            </p>
+        </article>
+
+        <article class="metric-card">
+            <h3>Heart Failure</h3>
+            <p class="metric-model">XGBoost</p>
+
+            <div class="metric-row">
+                <span>Accuracy</span>
+                <strong>99.50%</strong>
+            </div>
+
+            <div class="metric-progress">
+                <div style="width: 99.50%;"></div>
+            </div>
+
+            <p>
+                This model achieved the highest test performance. The unusually
+                strong result should still be interpreted cautiously and checked
+                for possible dataset duplication or leakage.
+            </p>
+        </article>
+
+    </section>
+
+    <section class="about-card">
+
+        <h2>Performance Metric Comparison</h2>
+
+        <div class="chart-group">
+
+            <div class="chart-block">
+                <h3>Accuracy</h3>
+
+                <div class="chart-row">
+                    <span>Framingham</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 81.60%;"
+                        >
+                            81.60%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Dataset</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 83.70%;"
+                        >
+                            83.70%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Failure</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 99.50%;"
+                        >
+                            99.50%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-block">
+                <h3>Precision</h3>
+
+                <div class="chart-row">
+                    <span>Framingham</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 31.51%;"
+                        >
+                            31.51%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Dataset</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 84.62%;"
+                        >
+                            84.62%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Failure</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 99.36%;"
+                        >
+                            99.36%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-block">
+                <h3>Recall</h3>
+
+                <div class="chart-row">
+                    <span>Framingham</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 17.83%;"
+                        >
+                            17.83%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Dataset</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 86.27%;"
+                        >
+                            86.27%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Failure</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 99.04%;"
+                        >
+                            99.04%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-block">
+                <h3>F1-Score</h3>
+
+                <div class="chart-row">
+                    <span>Framingham</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 22.77%;"
+                        >
+                            22.77%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Dataset</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 85.44%;"
+                        >
+                            85.44%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <span>Heart Failure</span>
+
+                    <div class="chart-track">
+                        <div
+                            class="chart-bar"
+                            style="width: 99.20%;"
+                        >
+                            99.20%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about-card">
+
+        <h2>Dataset Comparison</h2>
+
+        <div class="comparison-table-wrapper">
+
+            <table class="comparison-table">
+
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Records</th>
+                        <th>Model Inputs</th>
+                        <th>Target</th>
+                        <th>Preprocessing</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Framingham</td>
+                        <td>4,240</td>
+                        <td>15</td>
+                        <td>TenYearCHD</td>
+                        <td>
+                            Missing-value handling and feature preparation
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Heart Dataset</td>
+                        <td>920</td>
+                        <td>12</td>
+                        <td>
+                            num converted to binary
+                        </td>
+                        <td>
+                            Removed ID, ca and thal; median/mode imputation;
+                            categorical encoding
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Heart Failure</td>
+                        <td>5,000</td>
+                        <td>12</td>
+                        <td>DEATH_EVENT</td>
+                        <td>
+                            No missing values; numerical features retained
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section class="about-card">
+
+        <h2>Comparative Interpretation</h2>
+
+        <p>
+            The three results must not be interpreted as a direct competition
+            between identical prediction tasks. Each dataset represents a
+            different cardiovascular outcome:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Framingham:</strong>
+                ten-year coronary heart-disease risk.
+            </li>
+
+            <li>
+                <strong>Heart dataset:</strong>
+                presence or absence of heart disease.
+            </li>
+
+            <li>
+                <strong>Heart Failure:</strong>
+                adverse outcome during the recorded follow-up period.
+            </li>
+        </ul>
+
+        <p>
+            For this reason, the project deploys three independent models
+            through one integrated Flask platform rather than merging the
+            targets into a medically unclear single outcome.
+        </p>
+
+    </section>
+
+    <section class="disclaimer">
+
+        <strong>Academic notice:</strong>
+
+        These metrics describe performance on the project test splits. They are
+        not clinical validation results and should not be interpreted as evidence
+        that the models are suitable for real medical decision-making.
+
+    </section>
+
+</div>
+
+</body>
+
+</html>
